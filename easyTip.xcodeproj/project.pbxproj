@@ -14,6 +14,7 @@
 		C64657921C1AB09B003AAC09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C64657901C1AB09B003AAC09 /* LaunchScreen.storyboard */; };
 		C646579D1C1AB09B003AAC09 /* easyTipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646579C1C1AB09B003AAC09 /* easyTipTests.swift */; };
 		C64657A81C1AB09B003AAC09 /* easyTipUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64657A71C1AB09B003AAC09 /* easyTipUITests.swift */; };
+		C64657B61C1ABA3F003AAC09 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64657B51C1ABA3F003AAC09 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		C64657A31C1AB09B003AAC09 /* easyTipUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = easyTipUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C64657A71C1AB09B003AAC09 /* easyTipUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = easyTipUITests.swift; sourceTree = "<group>"; };
 		C64657A91C1AB09B003AAC09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C64657B51C1ABA3F003AAC09 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				C64657871C1AB09B003AAC09 /* AppDelegate.swift */,
 				C64657891C1AB09B003AAC09 /* ViewController.swift */,
 				C646578B1C1AB09B003AAC09 /* Main.storyboard */,
+				C64657B51C1ABA3F003AAC09 /* SettingsViewController.swift */,
 				C646578E1C1AB09B003AAC09 /* Assets.xcassets */,
 				C64657901C1AB09B003AAC09 /* LaunchScreen.storyboard */,
 				C64657931C1AB09B003AAC09 /* Info.plist */,
@@ -261,6 +264,7 @@
 			files = (
 				C646578A1C1AB09B003AAC09 /* ViewController.swift in Sources */,
 				C64657881C1AB09B003AAC09 /* AppDelegate.swift in Sources */,
+				C64657B61C1ABA3F003AAC09 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
