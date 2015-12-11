@@ -8,28 +8,44 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+protocol DestinationviewDelegate{
+    func setTipPerct(tipPerct1: Int, tipPerct2: Int, tipPerct3: Int);
+}
 
+class SettingsViewController: UIViewController {
+    var delegate : DestinationviewDelegate?
+    @IBOutlet weak var smallTipField: UITextField!
+    @IBOutlet weak var midTipField: UITextField!
+    @IBOutlet weak var largeTipField: UITextField!
+    var p1: Int! = nil
+    var p2: Int! = nil
+    var p3: Int! = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        smallTipField.placeholder = "\(p1)"
+        midTipField.placeholder = "\(p2)"
+        largeTipField.placeholder = "\(p3)"
 
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func saveSettings(sender: AnyObject) {
+        var tipPerc1 = Int(NSString(string: smallTipField.text!).doubleValue)
+        var tipPerc2 = Int(NSString(string: midTipField.text!).doubleValue)
+        var tipPerc3 = Int(NSString(string: largeTipField.text!).doubleValue)
+        print("keep working")
+        if((delegate) != nil){
+            print("delegate works")
+            self.delegate?.setTipPerct(tipPerc1, tipPerct2: tipPerc2, tipPerct3: tipPerc3)
+            self.navigationController?.popToRootViewControllerAnimated(true)
+        }
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
