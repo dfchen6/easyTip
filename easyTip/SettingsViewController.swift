@@ -23,6 +23,9 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        smallTipField.text = "\(p1)"
+        midTipField.text = "\(p2)"
+        largeTipField.text = "\(p3)"
         smallTipField.placeholder = "\(p1)"
         midTipField.placeholder = "\(p2)"
         largeTipField.placeholder = "\(p3)"
@@ -31,9 +34,9 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func saveSettings(sender: AnyObject) {
-        var tipPerc1 = Int(NSString(string: smallTipField.text!).doubleValue)
-        var tipPerc2 = Int(NSString(string: midTipField.text!).doubleValue)
-        var tipPerc3 = Int(NSString(string: largeTipField.text!).doubleValue)
+        let tipPerc1 = Int(NSString(string: smallTipField.text!).doubleValue)
+        let tipPerc2 = Int(NSString(string: midTipField.text!).doubleValue)
+        let tipPerc3 = Int(NSString(string: largeTipField.text!).doubleValue)
         print("keep working")
         if((delegate) != nil){
             print("delegate works")

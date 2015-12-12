@@ -14,8 +14,9 @@ class ViewController: UIViewController, DestinationviewDelegate {
     @IBOutlet weak var tipAmount: UILabel!
     @IBOutlet weak var totalAmount: UILabel!
     @IBOutlet weak var tipControl: UISegmentedControl!
+    @IBOutlet weak var numberField: UITextField!
     var tipPercentages = [0.18, 0.2, 0.22]    // Default tips percentages
-    
+    var numberOfPeople = 1 // Default number of people
     override func viewDidLoad() {
         super.viewDidLoad()
         billAmount.becomeFirstResponder()
@@ -30,12 +31,30 @@ class ViewController: UIViewController, DestinationviewDelegate {
     @IBAction func onTap(sender: AnyObject) {
         view.endEditing(true)
     }
+    @IBAction func increasePeople(sender: AnyObject) {
+        var tmpNum = self.numberOfPeople
+        if( tmpNum < 10){
+            tmpNum = tmpNum + 1
+            self.numberOfPeople  = tmpNum
+            numberField.text = "\(tmpNum)"
+        }
+        amountChanged(self)
+    }
+    @IBAction func decreasePeople(sender: AnyObject) {
+        var tmpNum = self.numberOfPeople
+        if( tmpNum > 1){
+            tmpNum = tmpNum - 1
+            self.numberOfPeople  = tmpNum
+            numberField.text = "\(tmpNum)"
+        }
+        amountChanged(self)
+    }
     
     @IBAction func amountChanged(sender: AnyObject) {
         let tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
         let billAmounts = NSString(string: billAmount.text!).doubleValue
         let tip = billAmounts * tipPercentage
-        let totalAmounts = billAmounts + tip
+        let totalAmounts = (billAmounts + tip)/Double(self.numberOfPeople)
         
         tipAmount.text = String(format: "$%.2f", tip)
         totalAmount.text = String(format: "$%.2f", totalAmounts)
@@ -76,8 +95,15 @@ class ViewController: UIViewController, DestinationviewDelegate {
         print("view did appear")
         let defaults = NSUserDefaults.standardUserDefaults()
         let prevAmount = defaults.integerForKey("previousAmount")
-        if (prevAmount > 0){
+        
+        let now = NSDate.timeIntervalSinceReferenceDate()
+        let prevTime = defaults.doubleForKey("previousTime")
+        print(now - prevTime)
+        if (prevAmount > 0 && (now - prevTime) < 10*60){
         billAmount.text = "\(prevAmount)"
+        }
+        else{
+            billAmount.text = ""
         }
     }
     
@@ -89,8 +115,11 @@ class ViewController: UIViewController, DestinationviewDelegate {
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
         print("view did disappear")
+        let previousDate = NSDate.timeIntervalSinceReferenceDate()
+        //return (now - previousBillDate) < (10 * 60) // Ten minutes
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setInteger(Int(NSString(string: billAmount.text!).doubleValue), forKey: "previousAmount")
+        defaults.setDouble(previousDate, forKey: "previousTime")
         defaults.synchronize()
     }
 
