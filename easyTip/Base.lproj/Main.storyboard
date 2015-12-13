@@ -23,8 +23,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQi-KQ-cqR">
-                                <rect key="frame" x="185" y="182" width="97" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQi-KQ-cqR">
+                                <rect key="frame" x="98" y="182" width="202" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -35,8 +35,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4B9-cd-BrG">
-                                <rect key="frame" x="185" y="245" width="115" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4B9-cd-BrG">
+                                <rect key="frame" x="98" y="245" width="202" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -56,17 +56,13 @@
                                 <rect key="frame" x="12" y="217" width="297" height="6"/>
                                 <color key="backgroundColor" red="0.0048296769759529961" green="0.0063981267498495033" blue="0.027797506313131271" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number of People" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="85B-tU-14t">
-                                <rect key="frame" x="9" y="135" width="159" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PXU-jA-MJd">
                                 <rect key="frame" x="270" y="129" width="30" height="30"/>
                                 <color key="backgroundColor" red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="0.44" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" title="+"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="increasePeople:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qik-Md-wpU"/>
                                 </connections>
@@ -75,19 +71,16 @@
                                 <rect key="frame" x="210" y="129" width="30" height="30"/>
                                 <color key="backgroundColor" red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="0.41999999999999998" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" title="-"/>
+                                <state key="normal" title="-">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="decreasePeople:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3VY-sw-XFi"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AYr-Av-IPk">
-                                <rect key="frame" x="248" y="129" width="32" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="36" translatesAutoresizingMaskIntoConstraints="NO" id="UIV-Xq-et2">
-                                <rect key="frame" x="113" y="85" width="180" height="30"/>
-                                <color key="backgroundColor" red="1" green="0.87117930980152081" blue="0.67808701099376634" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="70" y="85" width="223" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.0032946654040404422" green="0.00044709987938229616" blue="0.00050819577126198572" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
@@ -95,8 +88,20 @@
                                     <action selector="amountChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="xGh-FG-fOn"/>
                                 </connections>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QmC-f2-BbH">
+                                <rect key="frame" x="245" y="133" width="20" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="People" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="85B-tU-14t">
+                                <rect key="frame" x="41" y="133" width="112" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.87337139205343028" blue="0.64788343329047038" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="r8D-VB-4wj" appends="YES" id="9FY-qz-oTZ"/>
@@ -110,11 +115,16 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addButton" destination="buP-9E-IMF" id="dMM-fa-bN2"/>
                         <outlet property="billAmount" destination="UIV-Xq-et2" id="8bQ-qh-NoW"/>
-                        <outlet property="numberField" destination="AYr-Av-IPk" id="XzD-WM-mEp"/>
+                        <outlet property="numberField" destination="QmC-f2-BbH" id="NNX-sd-WQL"/>
+                        <outlet property="peopleTag" destination="85B-tU-14t" id="m0E-Y8-Vtr"/>
+                        <outlet property="reduceButton" destination="PXU-jA-MJd" id="DE7-cV-6cH"/>
                         <outlet property="tipAmount" destination="iQi-KQ-cqR" id="IV2-jt-3rQ"/>
                         <outlet property="tipControl" destination="wtw-Cw-AMh" id="b5L-yo-C24"/>
+                        <outlet property="tipTag" destination="u8O-IA-Ur4" id="fON-ew-vGn"/>
                         <outlet property="totalAmount" destination="4B9-cd-BrG" id="yT3-cm-gZd"/>
+                        <outlet property="totalTag" destination="daa-u5-ca2" id="cld-s3-GKF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -212,12 +222,16 @@
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="goG-7J-A23">
                                 <rect key="frame" x="237" y="257" width="51" height="31"/>
+                                <connections>
+                                    <action selector="changeMode:" destination="rAk-wS-loo" eventType="valueChanged" id="kOc-CI-Uxd"/>
+                                </connections>
                             </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="nh7-W8-oYf"/>
                     <connections>
+                        <outlet property="isNightMode" destination="goG-7J-A23" id="9xW-gX-Lc3"/>
                         <outlet property="largeTipField" destination="tDO-xY-oRS" id="PeB-xP-3nR"/>
                         <outlet property="midTipField" destination="3wT-S0-VEb" id="8Ad-wW-E2V"/>
                         <outlet property="smallTipField" destination="RND-z0-lnT" id="bzu-2q-WKN"/>
