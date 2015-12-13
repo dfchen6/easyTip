@@ -10,11 +10,9 @@ import UIKit
 
 class ViewController: UIViewController, DestinationviewDelegate {
 
-    @IBOutlet weak var peopleTag: UILabel!
     @IBOutlet weak var tipTag: UILabel!
     @IBOutlet weak var totalTag: UILabel!
-    @IBOutlet weak var addButton: UIButton!
-    @IBOutlet weak var reduceButton: UIButton!
+    @IBOutlet weak var numSlider: UISlider!
     
     @IBOutlet weak var billAmount: UITextField!
     @IBOutlet weak var tipAmount: UILabel!
@@ -28,7 +26,9 @@ class ViewController: UIViewController, DestinationviewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        billAmount.becomeFirstResponder()
+        if(amount > 0){
+            editChanged(self)}
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,26 +42,42 @@ class ViewController: UIViewController, DestinationviewDelegate {
     
     func updateNumView(num: Int){
         self.numberOfPeople = num
-        numberField.text = "\(num)"
+        numberField.text = "\(num)" + " people"
+        editChanged(self)
     }
     
-    @IBAction func increasePeople(sender: AnyObject) {
-        let tmpNum = self.numberOfPeople
-        if( tmpNum < 10){
-            updateNumView(tmpNum + 1)
+    @IBAction func changePeople(sender: AnyObject) {
+        let tmpNum = Int(numSlider.value)
+        updateNumView(tmpNum)
+        
+    }
+    @IBAction func editChanged(sender: AnyObject) {
+        if(billAmount.text! == ""){
+            self.billAmount.frame = CGRectMake(100, 0, 10, 10)
+            print("Bill is empty")
+            UIView.animateWithDuration(1, animations: {
+                self.billAmount.frame = CGRectMake(380, 0, 10, 10)
+                self.totalTag.hidden = true
+                self.tipTag.hidden = true
+                self.numSlider.hidden = true
+                self.tipAmount.hidden = true
+                self.numberField.hidden = true
+                self.tipControl.hidden = true
+                self.totalAmount.hidden = true
+            })
         }
-        amountChanged(self)
-    }
-    
-    @IBAction func decreasePeople(sender: AnyObject) {
-        let tmpNum = self.numberOfPeople
-        if( tmpNum > 1){
-            updateNumView(tmpNum - 1)
+        else{
+            print("Bill is not empty")
+            UIView.animateWithDuration(1, animations: {
+                self.totalTag.hidden = false
+                self.tipTag.hidden = false
+                self.numSlider.hidden = false
+                self.tipAmount.hidden = false
+                self.numberField.hidden = false
+                self.tipControl.hidden = false
+                self.totalAmount.hidden = false
+            })
         }
-        amountChanged(self)
-    }
-    
-    @IBAction func amountChanged(sender: AnyObject) {
         let tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
         let billAmounts = NSString(string: billAmount.text!).doubleValue
         let tip = billAmounts * tipPercentage
@@ -73,6 +89,10 @@ class ViewController: UIViewController, DestinationviewDelegate {
         totalAmount.text = formatAmount(totalAmounts)
     }
     
+    @IBAction func amountChanged(sender: AnyObject) {
+     
+    }
+    
     // Called from the destination controller via delegate
     func setTipPerct(tipPerct1: Int, tipPerct2: Int, tipPerct3: Int, isOn: Bool){
         tipPercentages[0] = Double(Double(tipPerct1)/100);
@@ -82,7 +102,7 @@ class ViewController: UIViewController, DestinationviewDelegate {
         tipControl.setTitle("\(tipPerct2)%", forSegmentAtIndex: 1)
         tipControl.setTitle("\(tipPerct3)%", forSegmentAtIndex: 2)
         nightMode = isOn
-        amountChanged(self)
+        editChanged(self)
     }
     
     // Format the tip value and total value in local currency
@@ -109,7 +129,6 @@ class ViewController: UIViewController, DestinationviewDelegate {
     func switchMode(){
         if(nightMode){
             self.view.backgroundColor = UIColor(red:0.33, green:0.35, blue:0.57, alpha:0.5)
-            peopleTag.textColor = UIColor(white: 1, alpha: 1)
             tipTag.textColor = UIColor(white: 1, alpha: 1)
             totalTag.textColor = UIColor(white: 1, alpha: 1)
             tipAmount.textColor = UIColor(white: 1, alpha: 1)
@@ -117,10 +136,10 @@ class ViewController: UIViewController, DestinationviewDelegate {
             billAmount.textColor = UIColor(white: 1, alpha: 1)
             billAmount.backgroundColor = UIColor(red:0.33, green:0.35, blue:0.57, alpha:0.5)
             numberField.textColor = UIColor(white: 1, alpha: 1)
+            billAmount.keyboardAppearance = UIKeyboardAppearance.Dark
             print("Night Mode is on! Let's work")
         }
         else{
-            peopleTag.textColor = UIColor.blackColor()
             tipTag.textColor = UIColor.blackColor()
             totalTag.textColor = UIColor.blackColor()
             tipAmount.textColor = UIColor.blackColor()
@@ -128,6 +147,7 @@ class ViewController: UIViewController, DestinationviewDelegate {
             billAmount.textColor = UIColor.blackColor()
             billAmount.backgroundColor = UIColor.whiteColor()
             numberField.textColor = UIColor.blackColor()
+            billAmount.keyboardAppearance = UIKeyboardAppearance.Light
             print("Day Mode is on!")
             self.view.backgroundColor = UIColor.whiteColor()
         }
@@ -137,6 +157,7 @@ class ViewController: UIViewController, DestinationviewDelegate {
         let previousDate = NSDate.timeIntervalSinceReferenceDate()
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setInteger(Int(NSString(string: billAmount.text!).doubleValue), forKey: "previousAmount")
+        print("Remember me! I am" + billAmount.text!)
         defaults.setDouble(previousDate, forKey: "previousTime")
         defaults.synchronize()
     }
@@ -164,6 +185,7 @@ class ViewController: UIViewController, DestinationviewDelegate {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         print("view did appear")
+        billAmount.becomeFirstResponder()
         restoreSettings()
         switchMode()
         }
